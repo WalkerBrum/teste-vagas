@@ -1,43 +1,64 @@
-# Este é um teste para desenvolvedores
+# Teste Técnico API SCF Brazil
 
-# possui 5 testes
+## 1. Visão Geral
+Teste técnico da empresa SCF Brazil com propósito de melhorar API de gerenciamento de usuários, usando node.js e express.
 
-## Introdução
+<hr>
 
-Este projeto possui um banco de dados fake em fakeData.js com apenas um registro.
-A ideia é melhorar e o CRUD escrito nos 4 arquivos de teste abaixo.
+## Recursos
+Usuários: Permite gerenciar usuários, incluindo criação, leitura, atualização e exclusão.
+Acesso: Verifica a quantidade de acesso de cada usuário.
 
-Será a validada a forma de escrita de código.
-Escreva códigos que humanos consigam entender.
+<hr>
 
-Fique a vontade para fazer modificaçoes nos serviços, comentários em código, estrutura, mas seja objetivo.
+## Endpoints
+- GET /users - Retorna uma lista de usuários;
+- GET /user/:id?name='nomeUsuário' - Retorna os detalhes de um usuário específico;
+- POST /users/:id  - Cria um novo usuário;
+- DELETE /users/:id?name='nomeUsuário' - Exclui um usuário existente;
+- PUT /users/:id?name='nomeUsuário' - Atualiza os dados de um usuário existente;
+- GET /users/acess?name='nomeUsuário' - Retorna a quantidade de vezes que um usuário foi lido;
 
-## teste1.js
+<hr>
 
-GET em /user 
+## Autenticação
+Foi criado um sistema autenticação para criar, atualizar e delete usuários. Essas autenticações são passadas ao criar cada usuário inserindo permissões para as tarefas de post, put e update, para conseguir fazer essas operações deve-se passar o id do usuário na url que a mesma irá retornar se o usuário tem permissão para tal operação.
 
-Possuimos neste arquivo um serviço que faz uma busca no banco fake e retorna um registro.
-Este código funciona, mas é possivel melhorar.
-Veja o que pode deixar ele melhor escrito e mais performatico.
+<hr>
 
-## teste2.js
+## Tecnologias
+- Node.js;
+- Express;
+- http-status-codes;
+- nodemon;
 
-POST em /users, descubra a intenção dele e o corrija.
+<hr>
 
-## teste3.js
+## **Requerimentos**
+- Node.js;
+- npm ou yarn;
 
-Este procura um usuário e o deleta da base.
-Retorne sucesso para o client caso realmente tenha sido excluido e deixe o código mais performatico.
+## **Instalação**
+```bash
+npm install
+# or
+yarn install
+```
 
-## teste4.js
+## Iniciar Projeto
 
-Atualiza os dados de um usuário especifico.
+Primeiro, execute o servidor de desenvolvimento:
 
-## teste5.js
+```bash
+npm start
+# or
+yarn start
+```
 
-Retorne quantas vezes determinado usuário foi lido no teste1.
+## **Autor e Agradecimento**
+Eu Walker Lobato como desenvolvedor do projeto sou grato por poder participar desse teste técnico promovido pela SCF Brazil, pois foi um grande oportunidade para o desenvolvimento das minhas hard skills, aprimorando os meus conhecimentos nas tecnlogias Node.js e Express, além de aprimorar no meu desenvolvimento de APIs.
 
-## teste 6
 
-Definina uma forma de criar permissão para o usuario, defina se o usuário pode deletar ou atualizar usuários. Crie um middleware para validar essas permissões e adicione no teste4 e teste3.
+
+
 
