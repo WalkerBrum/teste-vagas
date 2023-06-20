@@ -1,10 +1,10 @@
 const data =  require('../../database/fakeData');
 
-const createId = async () => {
+const createId = () => {
   let id;
 
   if (data.length > 0) {
-      id = await data[data.length - 1].id + 1;
+      id = data[data.length - 1].id + 1;
 
       return id;
  

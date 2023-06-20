@@ -2,7 +2,7 @@ const { StatusCodes } = require('http-status-codes');
 
 const data =  require('../database/fakeData');
 
-const deleteUser = async (req, res) => {
+const deleteUser = (req, res) => {
     try {
         const name =  req.query.name;
 
@@ -16,7 +16,7 @@ const deleteUser = async (req, res) => {
             });
         }
 
-        const deleteUser = await data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
+        const deleteUser = data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
 
         if (!deleteUser) {
             return res.status(StatusCodes.BAD_REQUEST).json({
@@ -26,7 +26,7 @@ const deleteUser = async (req, res) => {
             });
         }
         
-        await data.splice(deleteUser.id - 1, 1);
+        data.splice(deleteUser.id - 1, 1);
 
         return res.status(StatusCodes.OK).json({
             message: 'User delete with success.'

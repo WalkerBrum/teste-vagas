@@ -3,9 +3,9 @@ const { StatusCodes } = require('http-status-codes');
 const data =  require('../database/fakeData');
 const { createId } = require('../shared/services/services');
 
- const createUser = async (req, res) => {
+ const createUser = (req, res) => {
     try {
-        const id = await createId();   
+        const id = createId();   
         const name =  req.body.name;
         const job =  req.body.job;
         const permissions = req.body.permissions;
@@ -34,7 +34,7 @@ const { createId } = require('../shared/services/services');
             countRead: 0
         }
 
-        await data.push(newUser);
+        data.push(newUser);
     
         return res.status(StatusCodes.CREATED).json({
             message: 'User created with success.'

@@ -2,7 +2,7 @@ const { StatusCodes } = require("http-status-codes");
 
 const data =  require('../database/fakeData');
 
-const userReadTimes = async (req, res) => {
+const userReadTimes = (req, res) => {
     const name =  req.query.name;
 
     if (name) {
@@ -15,7 +15,7 @@ const userReadTimes = async (req, res) => {
         });
     }
 
-    const user = await data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
+    const user = data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
 
     if (!user) {
         return res.status(StatusCodes.BAD_REQUEST).json({

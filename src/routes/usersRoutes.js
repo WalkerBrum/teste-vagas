@@ -9,7 +9,7 @@ const { validationUserPermission } = require('../shared/middlewares/validationUs
 
 const routes = Router();
 
-routes.get('/', function(req, res){
+routes.get('/', (req, res) => {
   res.send(`get user/ </br>
   get users/ </br>
   post users/ </br>

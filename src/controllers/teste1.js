@@ -2,7 +2,7 @@ const { StatusCodes } = require('http-status-codes');
 
 const data =  require('../database/fakeData');
 
-const getUser = async ( req, res ) => {
+const getUser = ( req, res ) => {
     try {
         let name =  req.query.name;
 
@@ -16,7 +16,7 @@ const getUser = async ( req, res ) => {
             });
         }
 
-        const getUser = await data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
+        const getUser = data.find(objeto => objeto.name.toLowerCase().replace(' ', '') === name);
 
         if (!getUser) {
             return res.status(StatusCodes.BAD_REQUEST).json({
@@ -31,6 +31,8 @@ const getUser = async ( req, res ) => {
         return res.status(StatusCodes.OK).send(getUser);
         
     } catch (error) {
+        console.log(error);
+        
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             errors: {
                 default: error
